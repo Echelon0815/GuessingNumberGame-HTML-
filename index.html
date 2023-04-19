@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guessing The Number</title>
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="left-container">
+        </div>
+        <div class="mid-container">
+            <h1>Guess The Number - The Game</h1>
+            <div class="previous-guess-display">
+                <h1>?</h1>
+            </div>
+                <label for="guess">Please enter the number you guess</label>
+                <input type="number" id="guessInput" min="1" max="100" placeholder="Enter your guess!">
+                <button id="guessSubmitButton">guess!</button>
+                <button id="initializationButton">initialize the game</button>
+                <button id="saveCurrentRecordButton">Save result of current game</button>
+        </div>
+        <div class="right-container">
+        </div>
+    </div>
+    <script type="module">
+    import {initializeNum} from './js/startTheGame.js';
+    import {handleUserGuess} from './js/gameLogic.js';
+    import {addOldRecord} from './js/recordMultipleGames.js'
+
+    let guessInputElement = document.querySelector('#guessInput')
+    let guessSubmitButton = document.querySelector('#guessSubmitButton')
+    let initializationButton = document.querySelector('#initializationButton');
+    let saveCurrentRecordButton = document.querySelector('#saveCurrentRecordButton')
+
+
+    guessSubmitButton.addEventListener('click',()=>{handleUserGuess(guessInputElement.value)})
+    initializationButton.addEventListener('click',initializeNum);
+    saveCurrentRecordButton.addEventListener('click',addOldRecord);
+
+    </script>
+</body>
+</html>

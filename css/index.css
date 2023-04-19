@@ -1,0 +1,18 @@
+.wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+.wrapper [class$=container] {
+    padding-top: 5vh;
+    flex: 1 1 20%;
+    border:1px solid red;
+    height:100vh;
+}
+.wrapper .mid-container {
+    flex: 1 1 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around   ;
+}
