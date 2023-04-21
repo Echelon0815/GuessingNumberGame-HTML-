@@ -19,27 +19,26 @@
                 <label for="guess">Please enter the number you guess</label>
                 <input type="number" id="guessInput" min="1" max="100" placeholder="Enter your guess!">
                 <button id="guessSubmitButton">guess!</button>
-                <button id="initializationButton">initialize the game</button>
-                <button id="saveCurrentRecordButton">Save result of current game</button>
+                <button id="gameStartButton">Create New Game!</button>
+                <button id="saveCurrentRecordButton">Save Record</button>
         </div>
         <div class="right-container">
         </div>
     </div>
     <script type="module">
-    import {initializeNum} from './js/startTheGame.js';
+    import {createNewGame} from './js/createNewGame.js';
     import {handleUserGuess} from './js/gameLogic.js';
-    import {addOldRecord} from './js/recordMultipleGames.js'
+    import {saveGameHistory} from './js/saveGameHistory.js'
 
     let guessInputElement = document.querySelector('#guessInput')
     let guessSubmitButton = document.querySelector('#guessSubmitButton')
-    let initializationButton = document.querySelector('#initializationButton');
+    let gameStartButton = document.querySelector('#gameStartButton');
     let saveCurrentRecordButton = document.querySelector('#saveCurrentRecordButton')
 
 
     guessSubmitButton.addEventListener('click',()=>{handleUserGuess(guessInputElement.value)})
-    initializationButton.addEventListener('click',initializeNum);
-    saveCurrentRecordButton.addEventListener('click',addOldRecord);
-
+    gameStartButton.addEventListener('click',createNewGame);
+    saveCurrentRecordButton.addEventListener('click',saveGameHistory);
     </script>
 </body>
 </html>

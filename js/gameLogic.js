@@ -1,5 +1,6 @@
-import { gameRecord } from "./gameRecordSkeleton.js";
+import { gameRecord,gameStatus } from "./gameRecordSkeleton.js";
 
+// gameRecord must been changed by createNewGame() before doing these Logics.
 export function handleUserGuess(input) {
 
     //!! All values sent from a form are strings.
@@ -9,20 +10,22 @@ export function handleUserGuess(input) {
     
     try {
 
+        checkGameStatus();
         validateGuess(guess);
 
         if (targetNum - guess > 0) {
             console.log(`Your guess is ${guess}`);
-            addGuessedTimes();
+            updateGameHistory(guess);
             AlertAnswerTooLow();
         } else if (targetNum - guess < 0) {
             console.log(`Your guess is ${guess}`);
-            addGuessedTimes();
+            updateGameHistory(guess);
             AlertAnswerTooHigh();
         } else if (targetNum === guess){
             console.log(`Your guess is ${guess}`);
-            addGuessedTimes();
-            AlertAnswerCorrect();
+            updateGameHistory(guess);
+            AlertAnswerCorrect(gameRecord.guessedTimes);
+            endTheGame();
         } 
 
     }  catch (error) {
@@ -36,24 +39,10 @@ export function handleUserGuess(input) {
 
 }
 
-function addGuessedTimes() {
-    gameRecord.guessedTimes ++
-    // console.log(`猜測總數字: ${gameRecord.guessedTimes}`)
-}
-
-function AlertAnswerTooHigh() {
-
-    alert('the number you guess is too High, try again !')
-}
-
-function AlertAnswerTooLow() {
-
-    alert('the number you guess is too Low, try again !')
-}
-
-function AlertAnswerCorrect() {
-
-    alert('Yes ! You got the right number !')
+function checkGameStatus() {
+    if (gameStatus.status !== 'ready') {
+        throw new Error(`The game is not ready yet, please hit the Start New Game Button!`)
+    }
 }
 
 function validateGuess(input) {
@@ -71,4 +60,28 @@ function validateGuess(input) {
         throw new Error (`The size of the number is not valid !`); 
     }   
 
+}
+
+function updateGameHistory(input) {
+
+    gameRecord.guessedTimes ++
+    gameRecord.answerHistory.push(input)
+}
+
+function AlertAnswerTooHigh() {
+
+    alert('the number you guess is too High, try again !')
+}
+
+function AlertAnswerTooLow() {
+    alert('the number you guess is too Low, try again !')
+}
+
+function AlertAnswerCorrect(input) {
+    
+    alert(`Yes ! You Won ! The times you've guessed:${input}`)
+}
+
+function endTheGame() {
+    gameStatus.status = 'gameOver';
 }
