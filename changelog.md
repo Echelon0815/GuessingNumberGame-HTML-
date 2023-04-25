@@ -14,3 +14,13 @@
 
 ### 待辦
 * 準備製作顯示遊戲過往紀錄的函數 showGameHistory
+
+## Commit 3 (20230425)
+
+### 完成
+* 修改 gameRecordSkeleton.js 裏頭的 gameRecordHistroy，將其拆成兩個新變數："recordForEachGame","snapshotOfHistory" 
+* 修改 saveGameHistory.js 裏頭的函數，加上try...catch、檢查gamestatus、配合新變數
+
+### 待辦
+* 用 DocumentFragment 、appendChild、filter() 、find()、或 some() 等函式完成showGameHistory.js 
+  

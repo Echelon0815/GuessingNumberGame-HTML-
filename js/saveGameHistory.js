@@ -1,17 +1,21 @@
-import { gameRecord,gameRecordHistory,gameStatus } from "./gameRecordSkeleton.js";
+import { gameRecord,recordForEachGame,gameStatus } from "./gameRecordSkeleton.js";
 
 export function saveGameHistory() {
     try {
-        validateGameStauts();
-        gameRecordHistory.timesOfPlaying ++ ;   
-        gameRecordHistory.RecordsForEachGame.push(gameRecord);
-        console.log(`Current History:${gameRecordHistory.RecordsForEachGame.length}`);
+        validateGameStatus();
+        
+        // deep clone
+        let anotherGameRecord = {...gameRecord};
+
+        recordForEachGame.push(anotherGameRecord);
+        console.log(`Current History:${recordForEachGame.length}`);
+        console.log(recordForEachGame)
     } catch(error) {
         alert(error.message);
     }
 }
 
-function validateGameStauts() {
+function validateGameStatus() {
     if (gameStatus.status !== 'gameOver') {
         throw new Error(`This game is NOT over yet.`)
     }
