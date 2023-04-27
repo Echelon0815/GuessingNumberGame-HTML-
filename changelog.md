@@ -23,4 +23,11 @@
 
 ### 待辦
 * 用 DocumentFragment 、appendChild、filter() 、find()、或 some() 等函式完成showGameHistory.js 
-  
+
+## Commit 4 (20230427)
+
+### 完成
+* 完成showGameHistory中的函數，能利用documentFragment一次呈現所有新紀錄
+
+### 待辦
+* 替元素加上CSS、改善呈現紀錄的表格、讓儲存紀錄的函式在遊戲結束後自動執行。

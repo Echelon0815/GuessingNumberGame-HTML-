@@ -30,20 +30,20 @@
     import {createNewGame} from './js/createNewGame.js';
     import {handleUserGuess} from './js/gameLogic.js';
     import {saveGameHistory} from './js/saveGameHistory.js';
-    // import { showGameHistory } from './js/showGameHistory.js';
+    import { showGameHistory } from './js/showGameHistory.js';
 
     let guessInputElement = document.querySelector('#guessInput');
     let guessSubmitButton = document.querySelector('#guessSubmitButton');
     let gameStartButton = document.querySelector('#gameStartButton');
     let saveCurrentRecordButton = document.querySelector('#saveCurrentRecordButton');
-    // let recordContainer = document.querySelector('.left-container')
-    // let showAllRecordButton = document.querySelector(`#showAllRecord`);
+    let recordContainer = document.querySelector('.left-container')
+    let showAllRecordButton = document.querySelector(`#showAllRecord`);
 
 
     guessSubmitButton.addEventListener('click',()=>{handleUserGuess(guessInputElement.value)});
     gameStartButton.addEventListener('click',createNewGame);
     saveCurrentRecordButton.addEventListener('click',saveGameHistory);
-    // showAllRecordButton.addEventListener('click',showGameHistory(recordContainer))
+    showAllRecordButton.addEventListener('click',()=>showGameHistory(recordContainer))
 
     </script>
 </body>
