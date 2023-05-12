@@ -8,3 +8,5 @@
     IF the second importer changed the vars, then the third one get the updated ones, and so on.
     In the tags of `type="module"` ,the keyword `this` will be refer to `undefined`
     scripts inside `type="module"` always `difer`, they always run after the HTML is ready
+
+    變數被export出去時，其類別不能做更改，不能指向其他記憶體空間。

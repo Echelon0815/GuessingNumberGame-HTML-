@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card Examples</title>
+    <style>
+        body {
+            background-image: url(../assets/bg.jpg);
+        }
+
+        .wrapper {
+            width: 33vmax;
+            height: 100vh;
+            border: solid 3px red;
+            margin: 0 auto;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            padding-block: 20px;
+        }
+    </style>
+    <link rel="stylesheet" href="grid.css">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="card-grid-wrapper">
+            <div class="card-grid-container">
+                <!-- <img class="test" src="../assets/taurus-symbol-icon.svg" alt="decorations"> -->
+                <div class="player-grid-item-container">
+                    <h1>Player</h1>
+                    <p>123</p>
+                </div>
+                <div class="game-round-grid-item-container">
+                    <h1>GAME 1</h1>
+                </div>
+                <div class="game-target-grid-item-container">
+                    <h1>Target Number</h1>
+                    <p>789</p>
+                </div>
+                <div class="game-record-grid-item-container">
+                    <h1>Guessed Times</h1>
+                    <p>850</p>
+                </div>
+            </div>
+            <div class="decoration"></div>
+        </div>
+    </div>
+</body>
+</html>

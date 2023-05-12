@@ -1,3 +1,11 @@
+* {
+    font-family: 'Georgia,serif';
+}
+
+body {
+    background-image: url(../assets/bg.jpg);
+}
+
 .wrapper {
     width: 100%;
     display: flex;
@@ -15,4 +23,9 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-around   ;
+}
+
+button {
+    font-style: italic;
+    font-weight: bold;
 }

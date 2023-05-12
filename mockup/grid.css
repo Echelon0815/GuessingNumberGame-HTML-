@@ -1,0 +1,80 @@
+p , h1 {
+    color:rgb(52, 52, 52);
+    font-size: 1.2rem;
+    font-family: Verdana,serif;
+    font-weight: lighter;
+}
+
+.card-grid-wrapper {
+    width: 85%;
+}
+
+.card-grid-container {
+    display: grid;
+    max-height: 200px;
+    border: 6px solid #333;
+    border-radius: 25px;
+    grid-template-rows: repeat(3,1fr);
+    grid-template-columns: repeat(6,1fr);
+    grid-template-areas: 
+        "player player game game game game"
+        "player player game game game game"
+        "target target target guessedTime guessedTime guessedTime"
+    ;
+    position: relative;
+    background-position: 0%;
+    overflow: hidden;
+    text-align: center;
+}
+
+.decoration {
+    width: 100%;
+    height: 0;
+    position: relative;
+}
+
+.decoration::before {
+    content: "";
+    width: 65px;
+    height: 190px;
+    display: inline-block;
+    background-image: url(../assets/bracket.png);
+    background-size: cover;
+    position: absolute;
+    bottom: 10px;
+    left: -65px;
+} 
+
+.decoration::after {
+    width: 65px;
+    height: 190px;
+    display: inline-block;
+    content: "";
+    background-image: url(../assets/bracket.png);
+    background-size: cover;
+    transform: rotate(180deg);
+    position: absolute;
+    bottom: 10px;
+    right: -65px;
+}
+
+div[class$="grid-item-container"] {
+    background-color: #f5d3aaa2;
+    border: solid 1px rgb(52, 52, 52);
+}
+
+.player-grid-item-container {
+    grid-area:player;
+}
+.game-round-grid-item-container {
+    grid-area: game;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.game-target-grid-item-container {
+    grid-area: target;
+}
+.game-record-grid-item-container {
+    grid-area: guessedTime  ;
+}
